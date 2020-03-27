@@ -7,6 +7,44 @@
     tools:context=".ui.main.settings.SettingsFragment">
 
 
+    <TextView
+        android:id="@+id/choose_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_options"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.209" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="719dp"
+        android:layout_height="105dp"
+        app:layout_constraintBottom_toTopOf="@+id/back_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.753">
+
+        <RadioButton
+            android:id="@+id/fire_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fire"
+            android:textSize="36sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ice"
+            android:textSize="36sp" />
+    </RadioGroup>
+
     <Button
         android:id="@+id/back_btn"
         android:layout_width="wrap_content"
@@ -14,7 +52,9 @@
         android:text="@string/back_btn_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.856" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
