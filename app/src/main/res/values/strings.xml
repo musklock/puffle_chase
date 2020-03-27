@@ -9,4 +9,5 @@
     <string name="choose_options">Choose Fire or Ice</string>
     <string name="fire">Fire Mode</string>
     <string name="ice">Ice Mode</string>
+    <string name="level">Choose a level</string>
 </resources>
