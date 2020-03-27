@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.mmendira.mygame.ui.main.welcome.WelcomeFragment"
+        android:label="welcome_fragment"
+        tools:layout="@layout/welcome_fragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_levelFragment"
+            app:destination="@id/levelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.mmendira.mygame.ui.main.settings.SettingsFragment"
+        android:label="settings_fragment"
+        tools:layout="@layout/settings_fragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/levelFragment"
+        android:name="com.mmendira.mygame.ui.main.level.LevelFragment"
+        android:label="level_fragment"
+        tools:layout="@layout/level_fragment" >
+        <action
+            android:id="@+id/action_levelFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.mmendira.mygame.ui.main.game.GameFragment"
+        android:label="game_fragment"
+        tools:layout="@layout/game_fragment" >
+        <action
+            android:id="@+id/action_gameFragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.mmendira.mygame.ui.main.gameover.GameOverFragment"
+        android:label="game_over_fragment"
+        tools:layout="@layout/game_over_fragment" >
+        <action
+            android:id="@+id/action_gameOverFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+</navigation>
