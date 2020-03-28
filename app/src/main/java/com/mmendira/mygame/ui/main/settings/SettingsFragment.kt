@@ -41,10 +41,10 @@ class SettingsFragment : Fragment() {
     }
 
     fun fireBackground(){
-        settings_layout.setBackgroundResource(R.drawable.fire_background)
+        fire_or_ice.setImageResource(R.drawable.fire)
     }
     fun iceBackground(){
-        settings_layout.setBackgroundResource(R.drawable.ice_background)
+        fire_or_ice.setImageResource(R.drawable.iceblock)
     }
 
 }

@@ -201,7 +201,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/chewy"
         android:text="@string/puffle_chase_text"
-        android:textColor="@color/fire"
+        android:textColor="@color/colorPrimary"
         android:textSize="150sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
