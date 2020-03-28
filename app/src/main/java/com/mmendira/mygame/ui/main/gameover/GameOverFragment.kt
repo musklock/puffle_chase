@@ -31,5 +31,14 @@ class GameOverFragment : Fragment() {
         play_again.setOnClickListener {
             view.findNavController().navigate(R.id.action_gameOverFragment_to_welcomeFragment)
         }
+        win_button.setOnClickListener {
+            result_image.setImageResource(R.drawable.puffle2)
+            result_textView.text = resources.getText(R.string.game_won)
+        }
+        lose_button.setOnClickListener {
+            result_image.setImageResource(R.drawable.raincloud)
+            result_textView.text = resources.getText(R.string.game_lost)
+        }
     }
+
 }

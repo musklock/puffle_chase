@@ -14,4 +14,10 @@
     <string name="settings_textView_text">Settings</string>
     <string name="puffle_chase_text">Puffle Chase</string>
     <string name="lets_play">Let\'s Play!</string>
+    <string name="win_btn_text">Win</string>
+    <string name="lose_button_text">Lose</string>
+    <string name="result_string">Result</string>
+    <string name="play_again">Play Again</string>
+    <string name="game_won">Congratulations! You won</string>
+    <string name="game_lost">Oops! You lost</string>
 </resources>
