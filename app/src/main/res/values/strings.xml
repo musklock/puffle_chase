@@ -20,4 +20,5 @@
     <string name="play_again">Play Again</string>
     <string name="game_won">Congratulations! You won</string>
     <string name="game_lost">Oops! You lost</string>
+    <string name="play_music_text">Play music</string>
 </resources>

@@ -38,6 +38,7 @@ class LevelFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         play_game.setOnClickListener {
             view.findNavController().navigate(R.id.action_levelFragment_to_gameFragment)
+            viewModel.transitionSound()
         }
 
         viewModel = ViewModelProvider(this).get(LevelViewModel::class.java)
@@ -65,6 +66,7 @@ class LevelFragment : Fragment() {
 
         override fun onClick(v: View?) {
             viewModel.getLevelSelected(level)
+            viewModel.playSound()
         }
 
         fun bind(level: String) {
