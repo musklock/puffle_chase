@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="2dp"
     android:orientation="horizontal"
-    cardView:cardBackgroundColor="@color/colorAccent"
+    cardView:cardBackgroundColor="@color/colorPrimary"
     cardView:cardCornerRadius="12dp">
 
     <LinearLayout
@@ -19,8 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:fontFamily="@font/chewy"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp" />
+            android:textSize="48sp" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

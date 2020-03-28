@@ -13,4 +13,5 @@
     <string name="click_to_play_string">Click to Play!</string>
     <string name="settings_textView_text">Settings</string>
     <string name="puffle_chase_text">Puffle Chase</string>
+    <string name="lets_play">Let\'s Play!</string>
 </resources>
