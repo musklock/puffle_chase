@@ -21,4 +21,5 @@
     <string name="game_won">Congratulations! You won</string>
     <string name="game_lost">Oops! You lost</string>
     <string name="play_music_text">Play music</string>
+    <string name="title_text">Tap the yellow tiles to reach winning tile!</string>
 </resources>
