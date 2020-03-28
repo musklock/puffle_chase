@@ -28,7 +28,7 @@ class Game {
                             "Medium" to "Medium",
                             "Hard" to "Hard")
     var level: String
-    var mode:  String
+
     var gameWon = true
 
 
@@ -37,7 +37,6 @@ class Game {
     }
 
     init{
-        mode = "ice"
         level = "Medium"
     }
 
@@ -59,6 +58,10 @@ class Game {
         }else{
             return R.drawable.iceblock
         }
+    }
+
+    companion object{
+        var mode = "fire"
     }
 
 }

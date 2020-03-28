@@ -45,10 +45,12 @@ class SettingsFragment : Fragment() {
     fun fireBackground(){
         viewModel.playSound()
         fire_or_ice.setImageResource(R.drawable.fire)
+        viewModel.setMode("fire")
     }
     fun iceBackground(){
         viewModel.playSound()
         fire_or_ice.setImageResource(R.drawable.iceblock)
+        viewModel.setMode("ice")
     }
 
 }
