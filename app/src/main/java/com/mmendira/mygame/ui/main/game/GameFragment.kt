@@ -6,15 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 
 import com.mmendira.mygame.R
 import com.mmendira.mygame.model.Game
 import com.mmendira.mygame.model.Location
+import com.mmendira.mygame.ui.main.level.LevelFragmentDirections
 import kotlinx.android.synthetic.main.game_fragment.*
 
 class GameFragment : Fragment() {
     var game = Game()
+//    private lateinit var level: String
     private lateinit var location_1: Location
     private lateinit var location_2: Location
     private lateinit var location_3: Location
@@ -27,8 +31,8 @@ class GameFragment : Fragment() {
     private lateinit var location_10: Location
 
 
-    fun initiateLocations(){
-        if (game.level == "Easy"){
+    fun initiateLocations(level: String){
+        if (level == "Easy"){
             location_1 = Location(Game.Tile.PUFFLE)
             location_2 = Location(Game.Tile.GOOD)
             location_3 = Location(Game.Tile.GOOD)
@@ -40,7 +44,7 @@ class GameFragment : Fragment() {
             location_9 = Location(Game.Tile.EMPTY)
             location_10 = Location(Game.Tile.EMPTY)
 
-        }else if (game.level == "Medium"){
+        }else if (level == "Medium"){
             location_1 = Location(Game.Tile.PUFFLE)
             location_2 = Location(Game.Tile.BAD)
             location_7 = Location(Game.Tile.GOOD)
@@ -52,7 +56,7 @@ class GameFragment : Fragment() {
             location_6 = Location(Game.Tile.EMPTY)
             location_10 = Location(Game.Tile.EMPTY)
 
-        }else if (game.level == "Hard"){
+        }else if (level == "Hard"){
             location_5 = Location(Game.Tile.BAD)
             location_6 = Location(Game.Tile.GOOD)
             location_7 = Location(Game.Tile.BAD)
@@ -83,7 +87,14 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
-        initiateLocations()
+
+        arguments?.let { args ->
+            val safeArgs = GameFragmentArgs.fromBundle(args)
+            val level = safeArgs.level
+            initiateLocations(level)
+        }
+
+
         makeBoard()
         game_over.setOnClickListener {
             view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
@@ -92,7 +103,9 @@ class GameFragment : Fragment() {
         location1.setOnClickListener{
             if (location_1.lostGame()){
                 location_1.wasPrevious = true
-                view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                val actionResults =
+                    GameFragmentDirections.actionGameFragmentToGameOverFragment(0)
+                Navigation.findNavController(view).navigate(actionResults)
                 viewModel.playSoundLose()
             }
             if (location_1.isValid()){
@@ -120,7 +133,9 @@ class GameFragment : Fragment() {
         location2.setOnClickListener{
             location_2.isNext = true
             if (location_2.lostGame()){
-                view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                val actionResults =
+                    GameFragmentDirections.actionGameFragmentToGameOverFragment(0)
+                Navigation.findNavController(view).navigate(actionResults)
                 viewModel.playSoundLose()
             }
             if (location_2.tile != Game.Tile.BAD){
@@ -145,7 +160,9 @@ class GameFragment : Fragment() {
         }
         location3.setOnClickListener{
             if (location_3.lostGame()){
-                view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                val actionResults =
+                    GameFragmentDirections.actionGameFragmentToGameOverFragment(0)
+                Navigation.findNavController(view).navigate(actionResults)
                 viewModel.playSoundLose()
             }
             if (location_3.isValid()){
@@ -171,7 +188,9 @@ class GameFragment : Fragment() {
         }
         location4.setOnClickListener{
             if (location_4.isNext){
-                view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                val actionResults =
+                    GameFragmentDirections.actionGameFragmentToGameOverFragment(1)
+                Navigation.findNavController(view).navigate(actionResults)
                 viewModel.playSoundWin()
             }
             if (location_3.wasPrevious){
@@ -187,7 +206,9 @@ class GameFragment : Fragment() {
         }
         location5.setOnClickListener{
             if (location_5.lostGame()){
-                view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                val actionResults =
+                    GameFragmentDirections.actionGameFragmentToGameOverFragment(0)
+                Navigation.findNavController(view).navigate(actionResults)
                 viewModel.playSoundLose()
             }
             if (location_5.isValid()){
@@ -210,7 +231,9 @@ class GameFragment : Fragment() {
         }
         location6.setOnClickListener{
             if (location_6.lostGame()){
-                view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                val actionResults =
+                    GameFragmentDirections.actionGameFragmentToGameOverFragment(0)
+                Navigation.findNavController(view).navigate(actionResults)
                 viewModel.playSoundLose()
             }
             if (location_6.isValid()){
@@ -233,7 +256,9 @@ class GameFragment : Fragment() {
         location7.setOnClickListener{
             location_7.isNext = true
             if (location_7.lostGame()){
-                view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                val actionResults =
+                    GameFragmentDirections.actionGameFragmentToGameOverFragment(0)
+                Navigation.findNavController(view).navigate(actionResults)
                 viewModel.playSoundLose()
             }
             if (location_7.tile != Game.Tile.BAD){
@@ -259,7 +284,9 @@ class GameFragment : Fragment() {
         }
         location8.setOnClickListener{
             if (location_8.lostGame()){
-                view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                val actionResults =
+                    GameFragmentDirections.actionGameFragmentToGameOverFragment(0)
+                Navigation.findNavController(view).navigate(actionResults)
                 viewModel.playSoundLose()
             }
             if (location_8.isValid()){
@@ -285,7 +312,9 @@ class GameFragment : Fragment() {
         }
         location9.setOnClickListener{
             if (location_9.lostGame()){
-                view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                val actionResults =
+                    GameFragmentDirections.actionGameFragmentToGameOverFragment(0)
+                Navigation.findNavController(view).navigate(actionResults)
                 viewModel.playSoundLose()
             }
             if (location_9.isValid()){
@@ -311,7 +340,9 @@ class GameFragment : Fragment() {
         }
         location10.setOnClickListener{
             if (location_10.lostGame()){
-                view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                val actionResults =
+                    GameFragmentDirections.actionGameFragmentToGameOverFragment(0)
+                Navigation.findNavController(view).navigate(actionResults)
                 viewModel.playSoundLose()
             }
             if (location_10.isValid()){
@@ -334,6 +365,7 @@ class GameFragment : Fragment() {
         }
 
     }
+
 
     private fun makeBoard(){
         location1.setImageResource(game.getImageId(location_1.tile))

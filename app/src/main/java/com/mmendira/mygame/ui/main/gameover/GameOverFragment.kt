@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 
 import com.mmendira.mygame.R
 import com.mmendira.mygame.model.Game
+import com.mmendira.mygame.ui.main.game.GameFragmentArgs
 import kotlinx.android.synthetic.main.game_over_fragment.*
 
 class GameOverFragment : Fragment() {
@@ -31,19 +32,33 @@ class GameOverFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(GameOverViewModel::class.java)
+
+        arguments?.let { args ->
+            val safeArgs = GameOverFragmentArgs.fromBundle(args)
+            val result = safeArgs.result
+            displayResult(result)
+        }
         play_again.setOnClickListener {
             view.findNavController().navigate(R.id.action_gameOverFragment_to_welcomeFragment)
             viewModel.transitionSound()
         }
-        win_button.setOnClickListener {
-            result_image.setImageResource(R.drawable.puffle2)
-            result_textView.text = resources.getText(R.string.game_won)
-            viewModel.playSoundWin()
-        }
-        lose_button.setOnClickListener {
+//        win_button.setOnClickListener {
+//
+//            viewModel.playSoundWin()
+//        }
+//        lose_button.setOnClickListener {
+//            result_image.setImageResource(R.drawable.raincloud)
+//            result_textView.text = resources.getText(R.string.game_lost)
+//            viewModel.playSoundLose()
+//        }
+    }
+    private fun displayResult(result: Int){
+        if (result == 0){
             result_image.setImageResource(R.drawable.raincloud)
             result_textView.text = resources.getText(R.string.game_lost)
-            viewModel.playSoundLose()
+        }else{
+            result_image.setImageResource(R.drawable.puffle2)
+            result_textView.text = resources.getText(R.string.game_won)
         }
     }
 
