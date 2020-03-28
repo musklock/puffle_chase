@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 
 import com.mmendira.mygame.R
+import kotlinx.android.synthetic.main.level_fragment.*
 import kotlinx.android.synthetic.main.settings_fragment.*
 
 class SettingsFragment : Fragment() {
@@ -31,6 +32,19 @@ class SettingsFragment : Fragment() {
         back_btn.setOnClickListener {
             view.findNavController().navigate(R.id.action_settingsFragment_to_welcomeFragment)
         }
+        radioGroup.setOnCheckedChangeListener { _, id ->
+            when (id) {
+                R.id.fire_btn -> fireBackground()
+                R.id.ice_btn -> iceBackground()
+            }
+        }
+    }
+
+    fun fireBackground(){
+        settings_layout.setBackgroundResource(R.drawable.fire_background)
+    }
+    fun iceBackground(){
+        settings_layout.setBackgroundResource(R.drawable.ice_background)
     }
 
 }

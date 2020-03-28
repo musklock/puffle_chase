@@ -10,4 +10,7 @@
     <string name="fire">Fire Mode</string>
     <string name="ice">Ice Mode</string>
     <string name="level">Choose a level</string>
+    <string name="click_to_play_string">Click to Play!</string>
+    <string name="settings_textView_text">Settings</string>
+    <string name="puffle_chase_text">Puffle Chase</string>
 </resources>

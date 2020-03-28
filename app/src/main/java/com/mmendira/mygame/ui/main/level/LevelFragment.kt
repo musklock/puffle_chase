@@ -49,6 +49,8 @@ class LevelFragment : Fragment() {
         viewModel.levelSelected.observe(viewLifecycleOwner, Observer {
             level_selected.text = it.toString()
         })
+
+
     }
 
 
