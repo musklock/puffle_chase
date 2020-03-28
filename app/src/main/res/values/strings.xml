@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Game</string>
+    <string name="app_name">Puffle Chase</string>
     <string name="game_over_text">Game Over</string>
     <string name="back">Play Again</string>
     <string name="play_game_text">Play Game</string>
