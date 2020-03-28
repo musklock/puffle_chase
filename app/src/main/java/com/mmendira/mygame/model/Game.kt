@@ -5,6 +5,7 @@ import com.mmendira.mygame.R
 class Location(tile: Game.Tile){
     var tile = tile
     var isNext = false
+    var wasPrevious = false
     fun isValid():Boolean{
         if (tile == Game.Tile.GOOD && isNext){
             return true
@@ -28,6 +29,7 @@ class Game {
                             "Hard" to "Hard")
     var level: String
     var mode:  String
+    var gameWon = true
 
 
     enum class Tile{
@@ -35,8 +37,8 @@ class Game {
     }
 
     init{
-        mode = "fire"
-        level = "Hard"
+        mode = "ice"
+        level = "Medium"
     }
 
     fun levelSelected(level: String): String?{

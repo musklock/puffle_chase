@@ -18,17 +18,23 @@ class GameViewModel(application: Application) : AndroidViewModel(application){
                 sounds.play(sound)
             }
         }
-
     }
 
-    fun transitionSound(){
-        val welcomeTrack = "transition_sound"
+    fun playSoundWin(){
+        val welcomeTrack = "win"
         for (sound in soundsList){
-
             if (sound.title.equals(welcomeTrack)){
                 sounds.play(sound)
             }
         }
+    }
 
+    fun playSoundLose(){
+        val welcomeTrack = "lose"
+        for (sound in soundsList){
+            if (sound.title.equals(welcomeTrack)){
+                sounds.play(sound)
+            }
+        }
     }
 }

@@ -16,7 +16,6 @@ class GameOverViewModel (application: Application) : AndroidViewModel(applicatio
                 sounds.play(sound)
             }
         }
-
     }
 
     fun playSoundLose(){
@@ -26,7 +25,6 @@ class GameOverViewModel (application: Application) : AndroidViewModel(applicatio
                 sounds.play(sound)
             }
         }
-
     }
     fun transitionSound(){
         val welcomeTrack = "transition_sound"
@@ -36,6 +34,5 @@ class GameOverViewModel (application: Application) : AndroidViewModel(applicatio
                 sounds.play(sound)
             }
         }
-
     }
 }

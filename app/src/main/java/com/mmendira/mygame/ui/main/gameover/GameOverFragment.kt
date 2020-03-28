@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 
 import com.mmendira.mygame.R
+import com.mmendira.mygame.model.Game
 import kotlinx.android.synthetic.main.game_over_fragment.*
 
 class GameOverFragment : Fragment() {
@@ -18,6 +19,7 @@ class GameOverFragment : Fragment() {
     }
 
     private lateinit var viewModel: GameOverViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +34,6 @@ class GameOverFragment : Fragment() {
         play_again.setOnClickListener {
             view.findNavController().navigate(R.id.action_gameOverFragment_to_welcomeFragment)
             viewModel.transitionSound()
-
         }
         win_button.setOnClickListener {
             result_image.setImageResource(R.drawable.puffle2)
