@@ -12,10 +12,14 @@
         tools:layout="@layout/welcome_fragment" >
         <action
             android:id="@+id/action_welcomeFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_welcomeFragment_to_levelFragment"
-            app:destination="@id/levelFragment" />
+            app:destination="@id/levelFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -24,7 +28,9 @@
         tools:layout="@layout/settings_fragment" >
         <action
             android:id="@+id/action_settingsFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/levelFragment"
@@ -33,7 +39,9 @@
         tools:layout="@layout/level_fragment" >
         <action
             android:id="@+id/action_levelFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -43,6 +51,8 @@
         <action
             android:id="@+id/action_gameFragment_to_gameOverFragment"
             app:destination="@id/gameOverFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
             app:popUpTo="@+id/welcomeFragment"
             app:popUpToInclusive="false" />
         <argument
@@ -57,6 +67,8 @@
         <action
             android:id="@+id/action_gameOverFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
             app:popUpTo="@+id/welcomeFragment"
             app:popUpToInclusive="false" />
         <argument
