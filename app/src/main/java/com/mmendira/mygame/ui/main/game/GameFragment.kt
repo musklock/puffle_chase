@@ -112,11 +112,10 @@ class GameFragment : Fragment() {
                 location_1.tile = Game.Tile.PUFFLE
                 location_1.isNext = false
                 viewModel.playSound()
+                location_5.isNext = true
+                location_7.isNext = true
+                location_2.isNext = true
             }
-
-            location_5.isNext = true
-            location_7.isNext = true
-            location_2.isNext = true
 
             if (location_2.wasPrevious){
                 location_2.tile = Game.Tile.BAD
@@ -143,10 +142,11 @@ class GameFragment : Fragment() {
                 location_2.isNext = false
                 location_2.wasPrevious = true
                 viewModel.playSound()
+                location_1.isNext = true
+                location_8.isNext = true
+                location_3.isNext = true
             }
-            location_1.isNext = true
-            location_8.isNext = true
-            location_3.isNext = true
+
 
             location_1.tile = Game.Tile.BAD
 
@@ -170,10 +170,11 @@ class GameFragment : Fragment() {
                 location_3.isNext = false
                 location_3.wasPrevious = true
                 viewModel.playSound()
+                location_2.isNext = true
+                location_9.isNext = true
+                location_4.isNext = true
             }
-            location_2.isNext = true
-            location_9.isNext = true
-            location_4.isNext = true
+
 
             if (location_2.wasPrevious){
                 location_2.tile = Game.Tile.BAD
@@ -216,9 +217,10 @@ class GameFragment : Fragment() {
                 location_5.isNext = false
                 location_5.wasPrevious = true
                 viewModel.playSound()
+                location_1.isNext = true
+                location_6.isNext = true
             }
-            location_1.isNext = true
-            location_6.isNext = true
+
 
             if (location_1.wasPrevious){
                 location_1.tile = Game.Tile.BAD
@@ -241,9 +243,10 @@ class GameFragment : Fragment() {
                 location_6.isNext = false
                 location_6.wasPrevious = true
                 viewModel.playSound()
+                location_5.isNext = true
+                location_7.isNext = true
             }
-            location_5.isNext = true
-            location_7.isNext = true
+
 
             if (location_5.wasPrevious){
                 location_5.tile = Game.Tile.BAD
@@ -266,11 +269,12 @@ class GameFragment : Fragment() {
                 location_7.isNext = false
                 location_7.wasPrevious = true
                 viewModel.playSound()
+                location_1.isNext = true
+                location_8.isNext = true
+                location_6.isNext = true
             }
 
-            location_1.isNext = true
-            location_8.isNext = true
-            location_6.isNext = true
+
             if (location_7.tile != Game.Tile.EMPTY){
                 location_1.tile = Game.Tile.BAD
             }
@@ -294,10 +298,11 @@ class GameFragment : Fragment() {
                 location_8.isNext = false
                 location_8.wasPrevious = true
                 viewModel.playSound()
+                location_2.isNext = true
+                location_7.isNext = true
+                location_9.isNext = true
             }
-            location_2.isNext = true
-            location_7.isNext = true
-            location_9.isNext = true
+
 
             if (location_2.wasPrevious){
                 location_2.tile = Game.Tile.BAD
@@ -322,10 +327,11 @@ class GameFragment : Fragment() {
                 location_9.isNext = false
                 location_9.wasPrevious = true
                 viewModel.playSound()
+                location_10.isNext = true
+                location_8.isNext = true
+                location_3.isNext = true
             }
-            location_10.isNext = true
-            location_8.isNext = true
-            location_3.isNext = true
+
 
             if (location_3.wasPrevious){
                 location_3.tile = Game.Tile.BAD
@@ -350,9 +356,10 @@ class GameFragment : Fragment() {
                 location_10.isNext = false
                 location_10.wasPrevious = true
                 viewModel.playSound()
+                location_9.isNext = true
+                location_4.isNext = true
             }
-            location_9.isNext = true
-            location_4.isNext = true
+
 
             if (location_9.wasPrevious){
                 location_9.tile = Game.Tile.BAD
