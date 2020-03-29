@@ -43,7 +43,8 @@
         <action
             android:id="@+id/action_gameFragment_to_gameOverFragment"
             app:destination="@id/gameOverFragment"
-            app:popUpTo="@+id/welcomeFragment" />
+            app:popUpTo="@+id/welcomeFragment"
+            app:popUpToInclusive="false" />
         <argument
             android:name="level"
             app:argType="string" />
@@ -55,7 +56,9 @@
         tools:layout="@layout/game_over_fragment" >
         <action
             android:id="@+id/action_gameOverFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@+id/welcomeFragment"
+            app:popUpToInclusive="false" />
         <argument
             android:name="result"
             app:argType="integer" />
