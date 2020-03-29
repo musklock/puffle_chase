@@ -1,10 +1,13 @@
 package com.mmendira.mygame.ui.main.game
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
+import android.widget.ImageView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -18,7 +21,7 @@ import kotlinx.android.synthetic.main.game_fragment.*
 
 class GameFragment : Fragment() {
     var game = Game()
-//    private lateinit var level: String
+    private lateinit var puffle: ImageView
     private lateinit var location_1: Location
     private lateinit var location_2: Location
     private lateinit var location_3: Location
@@ -87,19 +90,16 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
+        puffle = view.findViewById(R.id.animated_image)
 
         arguments?.let { args ->
             val safeArgs = GameFragmentArgs.fromBundle(args)
             val level = safeArgs.level
             initiateLocations(level)
         }
-
-
+        animate()
         makeBoard()
-        game_over.setOnClickListener {
-            view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
-            viewModel.playSoundWin()
-        }
+
         location1.setOnClickListener{
             if (location_1.lostGame()){
                 location_1.wasPrevious = true
@@ -366,7 +366,6 @@ class GameFragment : Fragment() {
 
     }
 
-
     private fun makeBoard(){
         location1.setImageResource(game.getImageId(location_1.tile))
         location2.setImageResource(game.getImageId(location_2.tile))
@@ -378,6 +377,20 @@ class GameFragment : Fragment() {
         location8.setImageResource(game.getImageId(location_8.tile))
         location9.setImageResource(game.getImageId(location_9.tile))
         location10.setImageResource(game.getImageId(location_10.tile))
+
+    }
+
+    private fun animate(){
+        val animator =
+            ValueAnimator.ofFloat(0f, 5000f)
+        animator.addUpdateListener {
+            val value = it.animatedValue as Float
+            animated_image.translationX = value
+        }
+
+        animator.duration = 2000L
+        animator.interpolator = LinearInterpolator()
+        animator.start()
 
     }
 

@@ -1,11 +1,13 @@
 package com.mmendira.mygame.ui.main.level
 
+import android.animation.ValueAnimator
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -27,6 +29,7 @@ class LevelFragment : Fragment() {
     private lateinit var viewModel: LevelViewModel
     private lateinit var levelsRecycler: RecyclerView
     private lateinit var levelSelected: String
+    private lateinit var level: TextView
 
 
     override fun onCreateView(
@@ -41,7 +44,7 @@ class LevelFragment : Fragment() {
 
 
         viewModel = ViewModelProvider(this).get(LevelViewModel::class.java)
-
+        level = view.findViewById(R.id.level_selected)
         levelsRecycler = view.findViewById(R.id.level_recycler)
         levelsRecycler.layoutManager = LinearLayoutManager(context)
         levelsRecycler.adapter = LevelsAdapter(viewModel.levels_list)
@@ -72,6 +75,7 @@ class LevelFragment : Fragment() {
             viewModel.getLevelSelected(level)
             levelSelected = level
             viewModel.playSound()
+            animate()
         }
 
         fun bind(level: String) {
@@ -91,6 +95,20 @@ class LevelFragment : Fragment() {
         override fun onBindViewHolder(holder: LevelsViewHolder, position: Int) {
             holder.bind(terms[position])
         }
+    }
+
+    private fun animate(){
+        val animator =
+            ValueAnimator.ofFloat(-50f, 0f)
+        animator.addUpdateListener {
+            val value = it.animatedValue as Float
+            level.translationX = value
+        }
+
+        animator.duration = 300L
+        animator.interpolator = LinearInterpolator()
+        animator.start()
+
     }
 
 }

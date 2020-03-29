@@ -42,7 +42,8 @@
         tools:layout="@layout/game_fragment" >
         <action
             android:id="@+id/action_gameFragment_to_gameOverFragment"
-            app:destination="@id/gameOverFragment" />
+            app:destination="@id/gameOverFragment"
+            app:popUpTo="@+id/welcomeFragment" />
         <argument
             android:name="level"
             app:argType="string" />
