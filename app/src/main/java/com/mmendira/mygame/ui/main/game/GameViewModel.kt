@@ -10,8 +10,12 @@ import com.mmendira.mygame.model.Game
 class GameViewModel(application: Application) : AndroidViewModel(application){
     private val sounds = Sounds(getApplication<Application>().assets)
     val soundsList = sounds.sounds
-
-
+    var game = Game()
+    val GOOD = Game.Tile.GOOD
+    val BAD = Game.Tile.BAD
+    val EMPTY = Game.Tile.EMPTY
+    val PUFFLE = Game.Tile.PUFFLE
+    val WINNING = Game.Tile.WINNING
 
     fun playSound(){
         val welcomeTrack = "move_sound"
@@ -39,5 +43,10 @@ class GameViewModel(application: Application) : AndroidViewModel(application){
                 sounds.play(sound)
             }
         }
+    }
+
+    fun getImageId(tile: Game.Tile): Int{
+        return game.getImageId(tile)
+
     }
 }

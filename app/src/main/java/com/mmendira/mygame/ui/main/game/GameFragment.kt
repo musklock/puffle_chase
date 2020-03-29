@@ -20,7 +20,6 @@ import com.mmendira.mygame.ui.main.level.LevelFragmentDirections
 import kotlinx.android.synthetic.main.game_fragment.*
 
 class GameFragment : Fragment() {
-    var game = Game()
     private lateinit var puffle: ImageView
     private lateinit var location_1: Location
     private lateinit var location_2: Location
@@ -36,40 +35,40 @@ class GameFragment : Fragment() {
 
     fun initiateLocations(level: String){
         if (level == "Easy"){
-            location_1 = Location(Game.Tile.PUFFLE)
-            location_2 = Location(Game.Tile.GOOD)
-            location_3 = Location(Game.Tile.GOOD)
-            location_4 = Location(Game.Tile.WINNING)
-            location_5 = Location(Game.Tile.EMPTY)
-            location_6 = Location(Game.Tile.EMPTY)
-            location_7 = Location(Game.Tile.EMPTY)
-            location_8 = Location(Game.Tile.EMPTY)
-            location_9 = Location(Game.Tile.EMPTY)
-            location_10 = Location(Game.Tile.EMPTY)
+            location_1 = Location(viewModel.PUFFLE)
+            location_2 = Location(viewModel.GOOD)
+            location_3 = Location(viewModel.GOOD)
+            location_4 = Location(viewModel.WINNING)
+            location_5 = Location(viewModel.EMPTY)
+            location_6 = Location(viewModel.EMPTY)
+            location_7 = Location(viewModel.EMPTY)
+            location_8 = Location(viewModel.EMPTY)
+            location_9 = Location(viewModel.EMPTY)
+            location_10 = Location(viewModel.EMPTY)
 
         }else if (level == "Medium"){
-            location_1 = Location(Game.Tile.PUFFLE)
-            location_2 = Location(Game.Tile.BAD)
-            location_7 = Location(Game.Tile.GOOD)
-            location_8 = Location(Game.Tile.GOOD)
-            location_9 = Location(Game.Tile.GOOD)
-            location_3 = Location(Game.Tile.GOOD)
-            location_4 = Location(Game.Tile.WINNING)
-            location_5 = Location(Game.Tile.EMPTY)
-            location_6 = Location(Game.Tile.EMPTY)
-            location_10 = Location(Game.Tile.EMPTY)
+            location_1 = Location(viewModel.PUFFLE)
+            location_2 = Location(viewModel.BAD)
+            location_7 = Location(viewModel.GOOD)
+            location_8 = Location(viewModel.GOOD)
+            location_9 = Location(viewModel.GOOD)
+            location_3 = Location(viewModel.GOOD)
+            location_4 = Location(viewModel.WINNING)
+            location_5 = Location(viewModel.EMPTY)
+            location_6 = Location(viewModel.EMPTY)
+            location_10 = Location(viewModel.EMPTY)
 
         }else if (level == "Hard"){
-            location_5 = Location(Game.Tile.BAD)
-            location_6 = Location(Game.Tile.GOOD)
-            location_7 = Location(Game.Tile.BAD)
-            location_2 = Location(Game.Tile.GOOD)
-            location_8 = Location(Game.Tile.GOOD)
-            location_9 = Location(Game.Tile.GOOD)
-            location_3 = Location(Game.Tile.BAD)
-            location_10 = Location(Game.Tile.GOOD)
-            location_1 = Location(Game.Tile.PUFFLE)
-            location_4 = Location(Game.Tile.WINNING)
+            location_5 = Location(viewModel.BAD)
+            location_6 = Location(viewModel.GOOD)
+            location_7 = Location(viewModel.BAD)
+            location_2 = Location(viewModel.GOOD)
+            location_8 = Location(viewModel.GOOD)
+            location_9 = Location(viewModel.GOOD)
+            location_3 = Location(viewModel.BAD)
+            location_10 = Location(viewModel.GOOD)
+            location_1 = Location(viewModel.PUFFLE)
+            location_4 = Location(viewModel.WINNING)
         }
 
     }
@@ -109,7 +108,7 @@ class GameFragment : Fragment() {
                 viewModel.playSoundLose()
             }
             if (location_1.isValid()){
-                location_1.tile = Game.Tile.PUFFLE
+                location_1.tile = viewModel.PUFFLE
                 location_1.isNext = false
                 viewModel.playSound()
                 location_5.isNext = true
@@ -118,13 +117,13 @@ class GameFragment : Fragment() {
             }
 
             if (location_2.wasPrevious){
-                location_2.tile = Game.Tile.BAD
+                location_2.tile = viewModel.BAD
             }
             if (location_5.wasPrevious){
-                location_5.tile = Game.Tile.BAD
+                location_5.tile = viewModel.BAD
             }
             if (location_7.wasPrevious){
-                location_7.tile = Game.Tile.BAD
+                location_7.tile = viewModel.BAD
             }
             makeBoard()
 
@@ -137,8 +136,8 @@ class GameFragment : Fragment() {
                 Navigation.findNavController(view).navigate(actionResults)
                 viewModel.playSoundLose()
             }
-            if (location_2.tile != Game.Tile.BAD){
-                location_2.tile = Game.Tile.PUFFLE
+            if (location_2.tile != viewModel.BAD){
+                location_2.tile = viewModel.PUFFLE
                 location_2.isNext = false
                 location_2.wasPrevious = true
                 viewModel.playSound()
@@ -148,13 +147,13 @@ class GameFragment : Fragment() {
             }
 
 
-            location_1.tile = Game.Tile.BAD
+            location_1.tile = viewModel.BAD
 
             if (location_8.wasPrevious){
-                location_8.tile = Game.Tile.BAD
+                location_8.tile = viewModel.BAD
             }
             if (location_3.wasPrevious){
-                location_3.tile = Game.Tile.BAD
+                location_3.tile = viewModel.BAD
             }
             makeBoard()
         }
@@ -166,7 +165,7 @@ class GameFragment : Fragment() {
                 viewModel.playSoundLose()
             }
             if (location_3.isValid()){
-                location_3.tile = Game.Tile.PUFFLE
+                location_3.tile = viewModel.PUFFLE
                 location_3.isNext = false
                 location_3.wasPrevious = true
                 viewModel.playSound()
@@ -177,13 +176,13 @@ class GameFragment : Fragment() {
 
 
             if (location_2.wasPrevious){
-                location_2.tile = Game.Tile.BAD
+                location_2.tile = viewModel.BAD
             }
             if (location_9.wasPrevious){
-                location_9.tile = Game.Tile.BAD
+                location_9.tile = viewModel.BAD
             }
             if (location_4.wasPrevious){
-                location_4.tile = Game.Tile.BAD
+                location_4.tile = viewModel.BAD
             }
             makeBoard()
         }
@@ -195,13 +194,13 @@ class GameFragment : Fragment() {
                 viewModel.playSoundWin()
             }
             if (location_3.wasPrevious){
-                location_3.tile = Game.Tile.BAD
+                location_3.tile = viewModel.BAD
             }
             if (location_9.wasPrevious){
-                location_9.tile = Game.Tile.BAD
+                location_9.tile = viewModel.BAD
             }
             if (location_10.wasPrevious){
-                location_10.tile = Game.Tile.BAD
+                location_10.tile = viewModel.BAD
             }
 
         }
@@ -213,7 +212,7 @@ class GameFragment : Fragment() {
                 viewModel.playSoundLose()
             }
             if (location_5.isValid()){
-                location_5.tile = Game.Tile.PUFFLE
+                location_5.tile = viewModel.PUFFLE
                 location_5.isNext = false
                 location_5.wasPrevious = true
                 viewModel.playSound()
@@ -223,10 +222,10 @@ class GameFragment : Fragment() {
 
 
             if (location_1.wasPrevious){
-                location_1.tile = Game.Tile.BAD
+                location_1.tile = viewModel.BAD
             }
             if (location_6.wasPrevious){
-                location_6.tile = Game.Tile.BAD
+                location_6.tile = viewModel.BAD
             }
 
             makeBoard()
@@ -239,7 +238,7 @@ class GameFragment : Fragment() {
                 viewModel.playSoundLose()
             }
             if (location_6.isValid()){
-                location_6.tile = Game.Tile.PUFFLE
+                location_6.tile = viewModel.PUFFLE
                 location_6.isNext = false
                 location_6.wasPrevious = true
                 viewModel.playSound()
@@ -249,10 +248,10 @@ class GameFragment : Fragment() {
 
 
             if (location_5.wasPrevious){
-                location_5.tile = Game.Tile.BAD
+                location_5.tile = viewModel.BAD
             }
             if (location_7.wasPrevious){
-                location_7.tile = Game.Tile.BAD
+                location_7.tile = viewModel.BAD
             }
             makeBoard()
         }
@@ -264,8 +263,8 @@ class GameFragment : Fragment() {
                 Navigation.findNavController(view).navigate(actionResults)
                 viewModel.playSoundLose()
             }
-            if (location_7.tile != Game.Tile.BAD){
-                location_7.tile = Game.Tile.PUFFLE
+            if (location_7.tile != viewModel.BAD){
+                location_7.tile = viewModel.PUFFLE
                 location_7.isNext = false
                 location_7.wasPrevious = true
                 viewModel.playSound()
@@ -275,14 +274,14 @@ class GameFragment : Fragment() {
             }
 
 
-            if (location_7.tile != Game.Tile.EMPTY){
-                location_1.tile = Game.Tile.BAD
+            if (location_7.tile != viewModel.EMPTY){
+                location_1.tile = viewModel.BAD
             }
             if (location_8.wasPrevious){
-                location_8.tile = Game.Tile.BAD
+                location_8.tile = viewModel.BAD
             }
             if (location_6.wasPrevious){
-                location_6.tile = Game.Tile.BAD
+                location_6.tile = viewModel.BAD
             }
             makeBoard()
         }
@@ -294,7 +293,7 @@ class GameFragment : Fragment() {
                 viewModel.playSoundLose()
             }
             if (location_8.isValid()){
-                location_8.tile = Game.Tile.PUFFLE
+                location_8.tile = viewModel.PUFFLE
                 location_8.isNext = false
                 location_8.wasPrevious = true
                 viewModel.playSound()
@@ -305,13 +304,13 @@ class GameFragment : Fragment() {
 
 
             if (location_2.wasPrevious){
-                location_2.tile = Game.Tile.BAD
+                location_2.tile = viewModel.BAD
             }
             if (location_9.wasPrevious){
-                location_9.tile = Game.Tile.BAD
+                location_9.tile = viewModel.BAD
             }
             if (location_7.wasPrevious){
-                location_7.tile = Game.Tile.BAD
+                location_7.tile = viewModel.BAD
             }
             makeBoard()
         }
@@ -323,7 +322,7 @@ class GameFragment : Fragment() {
                 viewModel.playSoundLose()
             }
             if (location_9.isValid()){
-                location_9.tile = Game.Tile.PUFFLE
+                location_9.tile = viewModel.PUFFLE
                 location_9.isNext = false
                 location_9.wasPrevious = true
                 viewModel.playSound()
@@ -334,13 +333,13 @@ class GameFragment : Fragment() {
 
 
             if (location_3.wasPrevious){
-                location_3.tile = Game.Tile.BAD
+                location_3.tile = viewModel.BAD
             }
             if (location_8.wasPrevious){
-                location_8.tile = Game.Tile.BAD
+                location_8.tile = viewModel.BAD
             }
             if (location_10.wasPrevious){
-                location_10.tile = Game.Tile.BAD
+                location_10.tile = viewModel.BAD
             }
             makeBoard()
         }
@@ -352,7 +351,7 @@ class GameFragment : Fragment() {
                 viewModel.playSoundLose()
             }
             if (location_10.isValid()){
-                location_10.tile = Game.Tile.PUFFLE
+                location_10.tile = viewModel.PUFFLE
                 location_10.isNext = false
                 location_10.wasPrevious = true
                 viewModel.playSound()
@@ -362,10 +361,10 @@ class GameFragment : Fragment() {
 
 
             if (location_9.wasPrevious){
-                location_9.tile = Game.Tile.BAD
+                location_9.tile = viewModel.BAD
             }
             if (location_4.wasPrevious){
-                location_4.tile = Game.Tile.BAD
+                location_4.tile = viewModel.BAD
             }
 
             makeBoard()
@@ -374,16 +373,16 @@ class GameFragment : Fragment() {
     }
 
     private fun makeBoard(){
-        location1.setImageResource(game.getImageId(location_1.tile))
-        location2.setImageResource(game.getImageId(location_2.tile))
-        location3.setImageResource(game.getImageId(location_3.tile))
-        location4.setImageResource(game.getImageId(location_4.tile))
-        location5.setImageResource(game.getImageId(location_5.tile))
-        location6.setImageResource(game.getImageId(location_6.tile))
-        location7.setImageResource(game.getImageId(location_7.tile))
-        location8.setImageResource(game.getImageId(location_8.tile))
-        location9.setImageResource(game.getImageId(location_9.tile))
-        location10.setImageResource(game.getImageId(location_10.tile))
+        location1.setImageResource(viewModel.getImageId(location_1.tile))
+        location2.setImageResource(viewModel.getImageId(location_2.tile))
+        location3.setImageResource(viewModel.getImageId(location_3.tile))
+        location4.setImageResource(viewModel.getImageId(location_4.tile))
+        location5.setImageResource(viewModel.getImageId(location_5.tile))
+        location6.setImageResource(viewModel.getImageId(location_6.tile))
+        location7.setImageResource(viewModel.getImageId(location_7.tile))
+        location8.setImageResource(viewModel.getImageId(location_8.tile))
+        location9.setImageResource(viewModel.getImageId(location_9.tile))
+        location10.setImageResource(viewModel.getImageId(location_10.tile))
 
     }
 
