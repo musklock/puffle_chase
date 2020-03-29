@@ -99,6 +99,21 @@ class GameFragment : Fragment() {
         animate()
         makeBoard()
 
+        win.setOnClickListener {
+            val actionResults =
+                GameFragmentDirections.actionGameFragmentToGameOverFragment(1)
+            Navigation.findNavController(view).navigate(actionResults)
+            viewModel.playSoundWin()
+
+        }
+
+        lose.setOnClickListener{
+            val actionResults =
+                GameFragmentDirections.actionGameFragmentToGameOverFragment(0)
+            Navigation.findNavController(view).navigate(actionResults)
+            viewModel.playSoundLose()
+        }
+
         location1.setOnClickListener{
             if (location_1.lostGame()){
                 location_1.wasPrevious = true
